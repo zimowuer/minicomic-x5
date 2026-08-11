@@ -1,0 +1,15 @@
+﻿{
+  "pages": {
+    "index": "pages/index/index.vue",
+    "filemanager": "pages/filemanager/filemanager.vue",
+    "reader": "pages/reader/reader.vue",
+    "history": "pages/history/history.vue",
+    "favorite": "pages/favorite/favorite.vue",
+    "network": "pages/network/network.vue",
+    "setting": "pages/setting/setting.vue",
+    "info": "pages/info/info.vue",
+    "license": "pages/license/license.vue",
+    "page": "pages/page/page.vue"
+  },
+  "options": { "style": { "lessPaths": ["styles"] } }
+}

@@ -1,0 +1,47 @@
+# Build output
+dist/
+jsapi/build/
+
+# Toolchain (downloaded at build time, not committed)
+jsapi/toolchains/*
+!jsapi/toolchains/.gitkeep
+
+# versionInfo archives (downloaded at build time)
+*.tar.gz
+*.tar.bz2
+
+# Node / pnpm
+node_modules/
+ui/node_modules/
+aiot-vue-cli/node_modules/
+
+# UI build artifacts
+ui/*.amr
+ui/libs/*
+!ui/libs/libjsapi_webp.so
+!ui/libs/libjsapi_langningchen.so
+ui/dist/
+ui/.falcon_/
+
+# VS Code
+.vscode/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# Generated at build time from rawdict_utf16_65105_freq.txt
+jsapi/src/IME/rawdict_data.hpp
+
+# macOS
+.DS_Store
+
+# Locally extracted cross toolchains
+tools/armv7-eabihf--glibc--stable-2018.11-1/
+tools/armv7-eabihf--uclibc--bleeding-edge-2018.11-1/
+.tmp-*
+
+# WebP decoder build dependencies (downloaded by CI or local build)
+native/vendor/*

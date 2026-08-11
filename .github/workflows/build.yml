@@ -1,0 +1,65 @@
+name: Build X5 comic reader
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-x5:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install frontend dependencies
+        run: |
+          npm install -g pnpm@10.12.4
+          pnpm install --frozen-lockfile -C ./ui
+
+      - name: Install X5 ARMv7 glibc toolchain
+        run: |
+          mkdir -p ./jsapi/toolchains
+          wget -q "https://github.com/penosext/Cloudpan/releases/download/toolchains/armv7-eabihf--glibc--stable-2018.11-1.tar.bz2" \
+            -O "./jsapi/toolchains/armv7-eabihf--glibc--stable-2018.11-1.tar.bz2"
+          tar -xjf "./jsapi/toolchains/armv7-eabihf--glibc--stable-2018.11-1.tar.bz2" -C ./jsapi/toolchains
+          wget -q "https://github.com/penosext/Cloudpan/releases/download/PenX5/X5versionInfo.tar.gz" \
+            -O "./X5versionInfo.tar.gz"
+          tar -xzf "./X5versionInfo.tar.gz" -C ./jsapi
+
+      - name: Download pinned WebP decoder dependencies
+        run: |
+          mkdir -p native/vendor
+          curl --fail --location --retry 3 \
+            "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.4.0.tar.gz" \
+            -o /tmp/libwebp-1.4.0.tar.gz
+          tar -xzf /tmp/libwebp-1.4.0.tar.gz -C native/vendor
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/nothings/stb/master/stb_image_write.h" \
+            -o native/vendor/stb_image_write.h
+
+      - name: Build X5 package
+        run: ./tools/build.sh -a
+
+      - name: Upload X5 AMR
+        uses: actions/upload-artifact@v4
+        with:
+          name: x5-comic-reader
+          path: dist/*.amr
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload native build diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: x5-webp-native
+          path: |
+            ui/libs/libjsapi_webp.so
+            native/webp2jpg/build/webp2jpg-armv7
+          if-no-files-found: error
+          retention-days: 30
