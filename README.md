@@ -1,6 +1,6 @@
 # 横格漫画 · 有道翻译笔 X5 漫画阅读器
 
-漫画阅读器的大部分功能实现参考并迁移自 **Doge 漫画网络版 / doge-reader**（作者 `adogecheems`，上游仓库：<https://github.com/adogecheems/doge-reader>），其 README 声明使用 **GNU Affero General Public License v3.0**。本项目对迁移代码进行了 X5 分辨率、低内存分片、界面、存储和错误处理适配；应用内“设置 → Doge 漫画网络版”也提供了出处入口。
+漫画阅读器的大部分功能实现参考并迁移自 **Doge 漫画网络版 / doge-reader**（作者 `adogecheems`，上游仓库：<https://github.com/adogecheems/doge-reader>），其 README 声明使用 **GNU Affero General Public License v3.0**。本项目对迁移代码进行了 X5 分辨率、低内存分片、界面、存储和错误处理适配；doge漫画网络版仓库：https://github.com/GuaiRenGR/doge-comic-net应用内“设置 → Doge 漫画网络版”也提供了出处入口。
 
 > 当前构建目标仅为 X5：ARMv7、glibc。仓库中的 `ui/libs/libjsapi_webp.so` 也是该架构的原生模块，请勿直接把同一个包用于 A6P、P5 或其他架构设备。
 
