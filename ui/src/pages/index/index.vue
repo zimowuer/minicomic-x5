@@ -1,40 +1,40 @@
 <template>
     <div class="screen">
-        <NavRail label="閫€鍑? @back="exitApp">
+        <NavRail label="退出" @back="exitApp">
             <div class="rail-actions">
-                <IconButton :icon="require('../../assets/setting.png?base64')" label="璁剧疆" @click="go('setting')" />
-                <IconButton class="rail-gap" :icon="require('../../assets/info.png?base64')" label="鍏充簬" @click="go('info')" />
+                <IconButton :icon="require('../../assets/setting.png?base64')" label="设置" @click="go('setting')" />
+                <IconButton class="rail-gap" :icon="require('../../assets/info.png?base64')" label="关于" @click="go('info')" />
             </div>
         </NavRail>
         <div class="home">
             <div class="home-header">
                 <div class="brand-copy">
-                    <text class="brand-kicker">YOUDAO X5 路 800脳258</text>
-                    <text class="brand-title">妯牸婕敾</text>
+                    <text class="brand-kicker">YOUDAO X5 · 800×258</text>
+                    <text class="brand-title">横格漫画</text>
                 </div>
-                <text class="header-note">鏈湴浼樺厛 路 杩涘害鑷姩淇濆瓨 路 鍥涢〉鍒嗙墖浣庡唴瀛樻覆鏌?/text>
+                <text class="header-note">本地优先 · 进度自动保存 · 四页分片低内存渲染</text>
             </div>
             <div class="home-content">
                 <div class="recent-column">
-                    <text class="section-label">鏈€杩戦槄璇?/text>
+                    <text class="section-label">最近阅读</text>
                     <ComicCover v-if="recent.length" :node="recent[0].node" :title="nodeTitle(recent[0].node)" :meta="recent[0].time" @click="open(recent[0].node)" />
                     <div v-else class="recent-empty" @click="go('filemanager')">
-                        <text class="recent-empty-title">杩樻病鏈夐槄璇昏褰?/text>
-                        <text class="recent-empty-copy">鎵撳紑鏈湴婕敾寮€濮嬮槄璇?/text>
+                        <text class="recent-empty-title">还没有阅读记录</text>
+                        <text class="recent-empty-copy">打开本地漫画开始阅读</text>
                     </div>
                     <div v-if="recent.length > 1" class="mini-recent" @click="open(recent[1].node)">
                         <text class="mini-recent-title">{{ nodeTitle(recent[1].node) }}</text>
-                        <text class="mini-recent-arrow">缁х画 鈥?/text>
+                        <text class="mini-recent-arrow">继续 ›</text>
                     </div>
                 </div>
                 <div class="action-grid">
-                    <ActionTile title="鏈湴婕敾" desc="娴忚 /userdisk/Favorite" :icon="require('../../assets/folder.png?base64')" @click="go('filemanager')" />
-                    <ActionTile class="tile-left" title="鑱旂綉涔﹀簱" desc="鎼滅储銆佺紦瀛樺悗闃呰" :icon="require('../../assets/books.png?base64')" @click="go('network')" />
-                    <ActionTile class="tile-top" title="闃呰鍘嗗彶" desc="鎸変笂娆′綅缃户缁? :icon="require('../../assets/history.png?base64')" @click="go('history')" />
-                    <ActionTile class="tile-left-top" title="鎴戠殑鏀惰棌" desc="淇濆瓨甯哥湅鐨勬极鐢? :icon="require('../../assets/love.png?base64')" @click="go('favorite')" />
+                    <ActionTile title="本地漫画" desc="浏览 /userdisk/Favorite" :icon="require('../../assets/folder.png?base64')" @click="go('filemanager')" />
+                    <ActionTile class="tile-left" title="联网书库" desc="搜索、缓存后阅读" :icon="require('../../assets/books.png?base64')" @click="go('network')" />
+                    <ActionTile class="tile-top" title="阅读历史" desc="按上次位置继续" :icon="require('../../assets/history.png?base64')" @click="go('history')" />
+                    <ActionTile class="tile-left-top" title="我的收藏" desc="保存常看的漫画" :icon="require('../../assets/love.png?base64')" @click="go('favorite')" />
                     <div class="scan-status">
                         <div class="scan-line"></div>
-                        <text class="scan-copy">X5 妯睆妯″紡宸插惎鐢?/text>
+                        <text class="scan-copy">X5 横屏模式已启用</text>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ export default {
         go(page) { $falcon.navTo(page); },
         exitApp() { this.$page.finish(); },
         open(node) { $falcon.navTo('reader', { node: JSON.stringify(node) }); },
-        nodeTitle(node) { return node.name || String(node.path || '鏈懡鍚嶆极鐢?).split('/').pop(); },
+        nodeTitle(node) { return node.name || String(node.path || '未命名漫画').split('/').pop(); },
         onShow() { storage.getAllItems('history').then(items => { this.recent = items.slice(-2).reverse(); }); }
     }
 }
