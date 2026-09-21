@@ -1,5 +1,5 @@
 const defaults = {
-    scale: 1,
+    scale: 0.65,
     hidableSidebar: false,
     isDebug: false,
     readingMode: 'continuous'
