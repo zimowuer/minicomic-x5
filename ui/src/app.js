@@ -18,44 +18,44 @@
 import { BasePage } from './base-page.js'
 class App extends $falcon.App {
   /**
-   * 鏋勯€犲嚱鏁?搴旂敤鐢熷懡鍛ㄦ湡鍐呭彧鏋勯€犱竴娆?
+   * 构造函数,应用生命周期内只构造一次
    */
   constructor() {
     super()
   }
 
   /**
-   * 搴旂敤鐢熷懡鍛ㄦ湡:搴旂敤鍚姩. 鍒濆鍖栧畬鎴愭椂鍥炶皟,鍏ㄥ眬鍙Е鍙戜竴娆?
-   * @param {Object} options 鍚姩鍙傛暟
+   * 应用生命周期:应用启动. 初始化完成时回调,全局只触发一次.
+   * @param {Object} options 启动参数
    */
   onLaunch(options) {
     super.onLaunch(options)
-    // 灞忓箷鍒嗚鲸鐜囬€傞厤: viewport璁句负900, 鍦?00px灞忓箷涓婃暣浣撶缉灏忚嚦800/900鈮?.89
-    // 浣垮崱鐗囥€侀敭鐩樼瓑鍐呭瀹屾暣鏄剧ず涓嶈秴鍑哄睆骞?
+    // 屏幕分辨率适配: viewport设为900, 在800px屏幕上整体缩小至800/900≈0.89
+    // 使卡片、键盘等内容完整显示不超出屏幕
     this.setViewPort(900)
 
-    // 璁剧疆椤甸潰鍩虹被,搴旂敤鍏ㄥ眬鐨?falcon.Page灏嗚鏇挎崲鎴愭澶勬寚瀹氱殑BasePage.
-    // 缁ф壙鑷?falcon.Page鐨勯〉闈㈠皢缁ф壙鑷敼鍩虹被.
-    // 濡傞〉闈㈡湭鎸囧畾js,鐩存帴鎸囧悜.vue鏂囦欢,椤甸潰鍒涘缓鏃朵細榛樿鍒涘缓璇ョ被鐨勫疄渚?
+    // 设置页面基类,应用全局的$falcon.Page将被替换成此处指定的BasePage.
+    // 继承自$falcon.Page的页面将继承自改基类.
+    // 如页面未指定js,直接指向.vue文件,页面创建时会默认创建该类的实例
     $falcon.useDefaultBasePageClass(BasePage)
   }
 
   /**
-   * 搴旂敤鐢熷懡鍛ㄦ湡,搴旂敤鍚姩鎴栧簲鐢ㄤ粠鍚庡彴鍒囨崲鍒板墠鍙版椂瑙﹀彂
+   * 应用生命周期,应用启动或应用从后台切换到前台时触发
    */
   onShow() {
     super.onShow()
   }
 
   /**
-   * 搴旂敤鐢熷懡鍛ㄦ湡:搴旂敤閫€鍑哄墠鎴栬€呭簲鐢ㄤ粠鍓嶅彴鍒囨崲鍒板悗鍙版椂瑙﹀彂
+   * 应用生命周期:应用退出前或者应用从前台切换到后台时触发
    */
   onHide() {
     super.onHide()
   }
 
   /**
-   * 搴旂敤鐢熷懡鍛ㄦ湡:搴旂敤閿€姣佸墠瑙﹀彂
+   * 应用生命周期:应用销毁前触发
    */
   onDestroy() {
     super.onDestroy()
