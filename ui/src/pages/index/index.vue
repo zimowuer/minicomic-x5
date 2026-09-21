@@ -63,28 +63,28 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "../../styles/common.less";
-.home { width: 698px; height: 234px; padding: 12px 16px; background-color: @ink; }
-.home-header { width: 698px; height: 45px; flex-direction: row; align-items: center; justify-content: space-between; }
+.home { width: 540px; height: 234px; padding: 12px 16px; background-color: @ink; }
+.home-header { width: 540px; height: 45px; flex-direction: row; align-items: center; justify-content: space-between; }
 .brand-copy { width: 280px; }
 .brand-kicker { color: @scan; font-size: 10px; line-height: 13px; }
 .brand-title { color: @paper; font-size: 24px; line-height: 28px; font-weight: bold; }
-.header-note { width: 350px; color: @muted; font-size: 11px; line-height: 16px; text-align: right; }
-.home-content { width: 698px; height: 185px; flex-direction: row; }
-.recent-column { width: 230px; height: 185px; }
+.header-note { width: 250px; color: @muted; font-size: 11px; line-height: 16px; text-align: right; }
+.home-content { width: 540px; height: 185px; flex-direction: row; }
+.recent-column { width: 180px; height: 185px; }
 .section-label { height: 22px; color: @muted; font-size: 11px; line-height: 17px; }
-.recent-empty { width: 190px; height: 58px; padding: 18px 14px; border-radius: 13px; background-color: @panel; }
+.recent-empty { width: 140px; height: 58px; padding: 18px 14px; border-radius: 13px; background-color: @panel; }
 .recent-empty:active { background-color: @panel2; }
 .recent-empty-title { color: @paper; font-size: 15px; line-height: 20px; font-weight: bold; }
 .recent-empty-copy { margin-top: 7px; color: @scan; font-size: 11px; line-height: 15px; }
-.mini-recent { width: 198px; height: 22px; margin-top: 8px; padding: 8px 10px; border-radius: 10px; background-color: @panel; flex-direction: row; justify-content: space-between; }
+.mini-recent { width: 150px; height: 22px; margin-top: 8px; padding: 8px 10px; border-radius: 10px; background-color: @panel; flex-direction: row; justify-content: space-between; }
 .mini-recent:active { background-color: @panel2; }
 .mini-recent-title { width: 150px; color: @paper; font-size: 11px; line-height: 15px; overflow: hidden; text-overflow: ellipsis; }
 .mini-recent-arrow { color: @scan; font-size: 10px; line-height: 15px; }
-.action-grid { width: 468px; height: 185px; flex-direction: row; flex-wrap: wrap; }
+.action-grid { width: 350px; height: 185px; flex-direction: row; flex-wrap: wrap; }
 .tile-left { margin-left: 10px; }
 .tile-top { margin-top: 8px; }
 .tile-left-top { margin-left: 10px; margin-top: 8px; }
-.scan-status { width: 450px; height: 25px; margin-top: 7px; padding-left: 9px; border-radius: 8px; background-color: @panel; flex-direction: row; align-items: center; }
+.scan-status { width: 330px; height: 25px; margin-top: 7px; padding-left: 9px; border-radius: 8px; background-color: @panel; flex-direction: row; align-items: center; }
 .scan-line { width: 28px; height: 2px; background-color: @scan; }
 .scan-copy { margin-left: 8px; color: @muted; font-size: 10px; line-height: 14px; }
 .rail-actions { height: 112px; justify-content: space-between; }
