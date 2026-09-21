@@ -63,13 +63,13 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "../../styles/common.less";
-.home { width: 620px; height: 234px; padding: 12px 16px; background-color: @ink; }
-.home-header { width: 620px; height: 45px; flex-direction: row; align-items: center; justify-content: space-between; }
+.home { width: 600px; height: 234px; padding: 12px 16px; background-color: @ink; }
+.home-header { width: 600px; height: 45px; flex-direction: row; align-items: center; justify-content: space-between; }
 .brand-copy { width: 280px; }
 .brand-kicker { color: @scan; font-size: 10px; line-height: 13px; }
 .brand-title { color: @paper; font-size: 24px; line-height: 28px; font-weight: bold; }
 .header-note { width: 300px; color: @muted; font-size: 11px; line-height: 16px; text-align: right; }
-.home-content { width: 620px; height: 185px; flex-direction: row; }
+.home-content { width: 600px; height: 185px; flex-direction: row; }
 .recent-column { width: 200px; height: 185px; }
 .section-label { height: 22px; color: @muted; font-size: 11px; line-height: 17px; }
 .recent-empty { width: 165px; height: 58px; padding: 18px 14px; border-radius: 13px; background-color: @panel; }
@@ -80,7 +80,7 @@ export default {
 .mini-recent:active { background-color: @panel2; }
 .mini-recent-title { width: 150px; color: @paper; font-size: 11px; line-height: 15px; overflow: hidden; text-overflow: ellipsis; }
 .mini-recent-arrow { color: @scan; font-size: 10px; line-height: 15px; }
-.action-grid { width: 390px; height: 185px; flex-direction: row; flex-wrap: wrap; }
+.action-grid { width: 400px; height: 185px; flex-direction: row; flex-wrap: wrap; }
 .tile-left { margin-left: 10px; }
 .tile-top { margin-top: 8px; }
 .tile-left-top { margin-left: 10px; margin-top: 8px; }
